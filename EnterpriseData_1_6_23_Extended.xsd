@@ -1,0 +1,81 @@
+﻿<xs:schema xmlns:ns1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6" xmlns:ns2="http://www.1c.ru/SSL/Exchange/Message" xmlns:tns="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6/Extended" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6/Extended" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:import namespace="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6"/>
+	<xs:import namespace="http://www.1c.ru/SSL/Exchange/Message"/>
+	<xs:complexType name="Документ.СчетПокупателю.Лицензии">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СчетПокупателю.Лицензии.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетПокупателю.Лицензии.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="ns1:ТипНомерСтроки" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Количество" type="ns1:ТипКоличество"/>
+			<xs:element name="Сумма" type="ns1:ТипСумма"/>
+			<xs:element name="Цена" type="ns1:ТипСумма" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="ns1:СтавкиНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" type="ns1:ТипСумма" minOccurs="0"/>
+			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="КлючевыеСвойстваПроект">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.Проекты" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="КлючевыеСвойстваПроектГруппа">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.Проекты" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="РазмерСети">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ОдиночныйПроект"/>
+			<xs:enumeration value="Малая"/>
+			<xs:enumeration value="Средняя"/>
+			<xs:enumeration value="Большая"/>
+			<xs:enumeration value="НеАктивнаяСеть"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Справочник.Проекты">
+		<xs:complexContent>
+			<xs:extension base="ns2:Object">
+				<xs:sequence>
+					<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваПроект"/>
+					<xs:element name="Сеть" type="tns:КлючевыеСвойстваПроектГруппа" nillable="true" minOccurs="0"/>
+					<xs:element name="ОсновнойАдрес" type="xs:string"/>
+					<xs:element name="Бренд" type="xs:string"/>
+					<xs:element name="Концепция" type="xs:string"/>
+					<xs:element name="ПометкаУдаления" type="xs:boolean"/>
+					<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:anyAttribute namespace="##any" processContents="lax"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Справочник.ПроектыГруппа">
+		<xs:complexContent>
+			<xs:extension base="ns2:Object">
+				<xs:sequence>
+					<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваПроектГруппа" minOccurs="0"/>
+					<xs:element name="ИдБ24" type="xs:string" nillable="true"/>
+					<xs:element name="РазмерСети" type="tns:РазмерСети" nillable="true"/>
+					<xs:element name="ПометкаУдаления" type="xs:boolean"/>
+					<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:anyAttribute namespace="##any" processContents="lax"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="СправочникСсылка.Проекты">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+</xs:schema>
