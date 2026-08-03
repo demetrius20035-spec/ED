@@ -26,6 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 JSON_PATH = ROOT / "metadata_selected_cleaned.json"
 XSD_PATH = ROOT / "EnterpriseData_1_6_23_Extended.xsd"
+BASE_XSD_PATH = ROOT / "EnterpriseData_1_6_23.xsd"
 BSL_PATH = ROOT / "EnterpriseData.bsl"
 
 XSD_BEGIN = "НАЧАЛО ГЕНЕРИРУЕМОЙ СЕКЦИИ"
@@ -160,7 +161,19 @@ class Gen:
         self.gen_names = {o["ПолноеИмя"] for o in self.generated
                           if o["Тип"] in ("Справочник", "Документ")}
         self.existing_xsd_names = self._manual_zone_names()
+        self.base_xsd_names = set(re.findall(
+            r'<xs:(?:complexType|simpleType) name="([^"]+)"',
+            BASE_XSD_PATH.read_text(encoding="utf-8-sig")))
         self.warnings = []
+        # Затенение: СоздатьЗначениеXDTO ищет тип сначала в расширенном пакете,
+        # поэтому генерация типа с именем, существующим в 1.6, перекрывает
+        # типовой тип для всего РУЧНОГО кода, создающего его по имени
+        for o in self.generated:
+            if o["ПолноеИмя"] in self.base_xsd_names:
+                self.warnings.append(
+                    "Тип '%s' существует и в типовом пакете 1.6: ручной код, создающий его "
+                    "через СоздатьЗначениеXDTO, должен брать тип явно из URI()"
+                    % o["ПолноеИмя"])
 
     def _manual_zone_names(self):
         text = XSD_PATH.read_text(encoding="utf-8-sig")
