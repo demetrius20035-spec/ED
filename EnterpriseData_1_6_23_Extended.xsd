@@ -5,11 +5,11 @@
 		<xs:complexContent>
 			<xs:extension base="ns1:Документ.СчетПокупателю">
 				<xs:sequence>
-					<xs:element name="ИдБитрикс" type="xs:string"/>
-					<xs:element name="ИдБитрикс2" type="xs:string"/>
-					<xs:element name="ИдБитрикс3" type="xs:string"/>
-					<xs:element name="ТипПродаж" type="tns:КлючевыеСвойстваТипыПродаж"/>
-					<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор"/>
+					<xs:element name="ИдБитрикс" type="xs:string" minOccurs="0"/>
+					<xs:element name="ИдБитрикс2" type="xs:string" minOccurs="0"/>
+					<xs:element name="ИдБитрикс3" type="xs:string" minOccurs="0"/>
+					<xs:element name="ТипПродаж" type="tns:КлючевыеСвойстваТипыПродаж" minOccurs="0"/>
+					<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
 					<xs:element name="тчУслуги" type="tns:Документ.СчетПокупателю.тчУслуги" minOccurs="0"/>
 					<xs:element name="тчЛицензии" type="tns:Документ.СчетПокупателю.тчЛицензии" minOccurs="0"/>
 					<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
@@ -25,15 +25,15 @@
 	</xs:complexType>
 	<xs:complexType name="Документ.СчетПокупателю.тчЛицензии.Строка">
 		<xs:sequence>
-			<xs:element name="НомерСтрокиДокумента" minOccurs="0"/>
-			<xs:element name="Номенклатура" minOccurs="0"/>
-			<xs:element name="Количество"/>
-			<xs:element name="Сумма"/>
-			<xs:element name="Цена" minOccurs="0"/>
-			<xs:element name="СтавкаНДС" minOccurs="0"/>
-			<xs:element name="СуммаНДС" minOccurs="0"/>
+			<xs:element name="НомерСтрокиДокумента" type="ns1:ТипНомерСтроки" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Количество" type="ns1:ТипКоличество"/>
+			<xs:element name="Сумма" type="ns1:ТипСумма"/>
+			<xs:element name="Цена" type="ns1:ТипСумма" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="ns1:СтавкиНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" type="ns1:ТипСумма" minOccurs="0"/>
 			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
-			<xs:element name="Проект" type="tns:Справочник.Проекты"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
@@ -45,15 +45,15 @@
 	</xs:complexType>
 	<xs:complexType name="Документ.СчетПокупателю.тчУслуги.Строка">
 		<xs:sequence>
-			<xs:element name="НомерСтрокиДокумента" minOccurs="0"/>
-			<xs:element name="Номенклатура" minOccurs="0"/>
-			<xs:element name="Количество"/>
-			<xs:element name="Сумма"/>
-			<xs:element name="Цена" minOccurs="0"/>
-			<xs:element name="СтавкаНДС" minOccurs="0"/>
-			<xs:element name="СуммаНДС" minOccurs="0"/>
+			<xs:element name="НомерСтрокиДокумента" type="ns1:ТипНомерСтроки" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Количество" type="ns1:ТипКоличество"/>
+			<xs:element name="Сумма" type="ns1:ТипСумма"/>
+			<xs:element name="Цена" type="ns1:ТипСумма" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="ns1:СтавкиНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" type="ns1:ТипСумма" minOccurs="0"/>
 			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
-			<xs:element name="Проект" type="tns:Справочник.Проекты"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
@@ -76,7 +76,7 @@
 	</xs:complexType>
 	<xs:complexType name="КлючевыеСвойстваТипыПродаж">
 		<xs:sequence>
-			<xs:element name="Ссылка" type="tns:СправочникСсылка.ТипыПродаж"/>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.ТипыПродаж" minOccurs="0"/>
 			<xs:element name="Наименование" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -113,14 +113,16 @@
 	</xs:complexType>
 	<xs:complexType name="Справочник.ТипыПродаж">
 		<xs:sequence>
-			<xs:element name="КлючевыеСвойства"/>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваТипыПродаж"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="СправочникСсылка.Проекты">
-		<xs:restriction/>
+		<xs:restriction base="ns2:Ref"/>
 	</xs:simpleType>
 	<xs:simpleType name="СправочникСсылка.ТипыПродаж">
-		<xs:restriction/>
+		<xs:restriction base="ns2:Ref"/>
 	</xs:simpleType>
 	<!-- ===== НАЧАЛО ГЕНЕРИРУЕМОЙ СЕКЦИИ: не редактировать вручную (tools/generate_export.py) ===== -->
 	<xs:simpleType name="ДокументСсылка.ПоступлениеНаРасчетныйСчет">
