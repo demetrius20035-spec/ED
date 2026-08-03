@@ -1,0 +1,125 @@
+﻿<xs:schema xmlns:ns1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6" xmlns:ns2="http://www.1c.ru/SSL/Exchange/Message" xmlns:tns="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6/Extended" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6/Extended" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:import namespace="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6"/>
+	<xs:import namespace="http://www.1c.ru/SSL/Exchange/Message"/>
+	<xs:complexType name="Документ.СчетПокупателю">
+		<xs:complexContent>
+			<xs:extension base="ns1:Документ.СчетПокупателю">
+				<xs:sequence>
+					<xs:element name="ИдБитрикс" type="xs:string"/>
+					<xs:element name="ИдБитрикс2" type="xs:string"/>
+					<xs:element name="ИдБитрикс3" type="xs:string"/>
+					<xs:element name="ТипПродаж" type="tns:КлючевыеСвойстваТипыПродаж"/>
+					<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор"/>
+					<xs:element name="тчУслуги" type="tns:Документ.СчетПокупателю.тчУслуги" minOccurs="0"/>
+					<xs:element name="тчЛицензии" type="tns:Документ.СчетПокупателю.тчЛицензии" minOccurs="0"/>
+					<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:anyAttribute namespace="##any" processContents="lax"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетПокупателю.тчЛицензии">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СчетПокупателю.тчЛицензии.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетПокупателю.тчЛицензии.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" minOccurs="0"/>
+			<xs:element name="Номенклатура" minOccurs="0"/>
+			<xs:element name="Количество"/>
+			<xs:element name="Сумма"/>
+			<xs:element name="Цена" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" minOccurs="0"/>
+			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:Справочник.Проекты"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетПокупателю.тчУслуги">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СчетПокупателю.тчУслуги.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетПокупателю.тчУслуги.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" minOccurs="0"/>
+			<xs:element name="Номенклатура" minOccurs="0"/>
+			<xs:element name="Количество"/>
+			<xs:element name="Сумма"/>
+			<xs:element name="Цена" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" minOccurs="0"/>
+			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:Справочник.Проекты"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="КлючевыеСвойстваПроект">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.Проекты" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="КлючевыеСвойстваПроектГруппа">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.Проекты" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="КлючевыеСвойстваТипыПродаж">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.ТипыПродаж"/>
+			<xs:element name="Наименование" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="РазмерСети">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ОдиночныйПроект"/>
+			<xs:enumeration value="Малая"/>
+			<xs:enumeration value="Средняя"/>
+			<xs:enumeration value="Большая"/>
+			<xs:enumeration value="НеАктивнаяСеть"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Справочник.Проекты">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваПроект"/>
+			<xs:element name="Сеть" type="tns:КлючевыеСвойстваПроектГруппа" nillable="true" minOccurs="0"/>
+			<xs:element name="ОсновнойАдрес" type="xs:string" minOccurs="0"/>
+			<xs:element name="Бренд" type="xs:string" minOccurs="0"/>
+			<xs:element name="Концепция" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Справочник.ПроектыГруппа">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваПроектГруппа" minOccurs="0"/>
+			<xs:element name="ИдБ24" type="xs:string" nillable="true"/>
+			<xs:element name="РазмерСети" type="tns:РазмерСети" nillable="true" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Справочник.ТипыПродаж">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="СправочникСсылка.Проекты">
+		<xs:restriction/>
+	</xs:simpleType>
+	<xs:simpleType name="СправочникСсылка.ТипыПродаж">
+		<xs:restriction/>
+	</xs:simpleType>
+</xs:schema>
