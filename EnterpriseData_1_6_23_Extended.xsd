@@ -122,4 +122,1830 @@
 	<xs:simpleType name="СправочникСсылка.ТипыПродаж">
 		<xs:restriction/>
 	</xs:simpleType>
+	<!-- ===== НАЧАЛО ГЕНЕРИРУЕМОЙ СЕКЦИИ: не редактировать вручную (tools/generate_export.py) ===== -->
+	<xs:simpleType name="ДокументСсылка.ПоступлениеНаРасчетныйСчет">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваПоступлениеНаРасчетныйСчет">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:ДокументСсылка.ПоступлениеНаРасчетныйСчет" minOccurs="0"/>
+			<xs:element name="Дата" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Номер" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваПоступлениеНаРасчетныйСчет"/>
+			<xs:element name="Операция" type="tns:КлючевыеСвойстваОперации" minOccurs="0"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="БухгалтерскийУчет" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="УправленческийУчет" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="СчетОрганизации" type="ns1:КлючевыеСвойстваБанковскийСчет" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВсегоНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Заказ" type="xs:string" minOccurs="0"/>
+			<xs:element name="СчетКонтрагента" type="ns1:КлючевыеСвойстваБанковскийСчет" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="Аналитика" type="xs:string" minOccurs="0"/>
+			<xs:element name="АналитикаПредставление" type="xs:string" minOccurs="0"/>
+			<xs:element name="НомерВходящегоДокумента" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаВходящегоДокумента" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="tns:КлючевыеСвойстваСтавкиНДС" minOccurs="0"/>
+			<xs:element name="КурсВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КратностьВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ФизическоеЛицо" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Счет" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто1" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто3" type="xs:string" minOccurs="0"/>
+			<xs:element name="НазначениеПлатежа" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="ИзБанкКлиента" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="РедактироватьСписком" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ОтправитьВРФРИТ" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ОтправленоВРФРИТ" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="ОплатаНаличными" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ЧекВыбит" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ОбщехозяйственныеРасходы" type="tns:Документ.ПоступлениеНаРасчетныйСчет.ОбщехозяйственныеРасходы" minOccurs="0"/>
+			<xs:element name="ДополнительныеРеквизиты" type="tns:Документ.ПоступлениеНаРасчетныйСчет.ДополнительныеРеквизиты" minOccurs="0"/>
+			<xs:element name="РасшифровкаПоИсточникамФинансирования" type="tns:Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПоИсточникамФинансирования" minOccurs="0"/>
+			<xs:element name="РасшифровкаПлатежа" type="tns:Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПлатежа" minOccurs="0"/>
+			<xs:element name="ДокументыПоВзаиорасчетам" type="tns:Документ.ПоступлениеНаРасчетныйСчет.ДокументыПоВзаиорасчетам" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет.ОбщехозяйственныеРасходы">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПоступлениеНаРасчетныйСчет.ОбщехозяйственныеРасходы.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет.ОбщехозяйственныеРасходы.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ДатаОтнесенияЗатрат" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="СтатьяЗатрат" type="ns1:КлючевыеСвойстваСтатьяРасходов" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаУпр" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет.ДополнительныеРеквизиты">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПоступлениеНаРасчетныйСчет.ДополнительныеРеквизиты.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет.ДополнительныеРеквизиты.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Свойство" type="xs:string" minOccurs="0"/>
+			<xs:element name="Значение" type="xs:string" minOccurs="0"/>
+			<xs:element name="ТекстоваяСтрока" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПоИсточникамФинансирования">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПоИсточникамФинансирования.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПоИсточникамФинансирования.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ИсточникФинансирования" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПлатежа">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПлатежа.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет.РасшифровкаПлатежа.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Заказ" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КурсВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КратностьВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет.ДокументыПоВзаиорасчетам">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПоступлениеНаРасчетныйСчет.ДокументыПоВзаиорасчетам.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПоступлениеНаРасчетныйСчет.ДокументыПоВзаиорасчетам.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Документ" type="xs:string" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="ДокументСсылка.ПредметДоговора">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваПредметДоговора">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:ДокументСсылка.ПредметДоговора" minOccurs="0"/>
+			<xs:element name="Дата" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Номер" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваПредметДоговора"/>
+			<xs:element name="Операция" type="tns:КлючевыеСвойстваОперации" minOccurs="0"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="УчитыватьНДС" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="СуммаВключаетНДС" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВсегоТовары" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВсегоУслуги" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВсегоБиллинг" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВсегоНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВсегоНДСТовары" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВсегоНДСУслуги" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="КурсВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КратностьВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ТипЦены" type="xs:string" minOccurs="0"/>
+			<xs:element name="Скидка" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="АдресДоставки" type="xs:string" minOccurs="0"/>
+			<xs:element name="УсловияБиллинга" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаНачала" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="ДатаОкончания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="ОтправленоВЭДО" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Ид" type="xs:string" minOccurs="0"/>
+			<xs:element name="ИдБитрикс" type="xs:string" minOccurs="0"/>
+			<xs:element name="Склад" type="ns1:КлючевыеСвойстваСклад" minOccurs="0"/>
+			<xs:element name="Товары" type="tns:Документ.ПредметДоговора.Товары" minOccurs="0"/>
+			<xs:element name="Услуги" type="tns:Документ.ПредметДоговора.Услуги" minOccurs="0"/>
+			<xs:element name="Лицензии" type="tns:Документ.ПредметДоговора.Лицензии" minOccurs="0"/>
+			<xs:element name="Биллинг" type="tns:Документ.ПредметДоговора.Биллинг" minOccurs="0"/>
+			<xs:element name="ДополнительныеРеквизиты" type="tns:Документ.ПредметДоговора.ДополнительныеРеквизиты" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора.Товары">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПредметДоговора.Товары.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора.Товары.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="АдресДоставки" type="xs:string" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Единица" type="ns1:КлючевыеСвойстваЕдиницаИзмерения" minOccurs="0"/>
+			<xs:element name="Коэффициент" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Вес" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Цена" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ЦенаБезСкидки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаБезСкидки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="tns:КлючевыеСвойстваСтавкиНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Партия" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПартияПроизводителя" type="xs:string" minOccurs="0"/>
+			<xs:element name="НомерГТД" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтранаПроисхождения" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВесПоДокументу" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Скидка" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Себестоимость" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ПоЗаказуПокупателя" type="xs:string" minOccurs="0"/>
+			<xs:element name="Спецификация" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВспомогательноеПоле" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора.Услуги">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПредметДоговора.Услуги.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора.Услуги.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="АдресДоставки" type="xs:string" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Единица" type="ns1:КлючевыеСвойстваЕдиницаИзмерения" minOccurs="0"/>
+			<xs:element name="Коэффициент" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Цена" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ЦенаБезСкидки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаБезСкидки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="tns:КлючевыеСвойстваСтавкиНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Скидка" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Себестоимость" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Спецификация" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВспомогательноеПоле" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора.Лицензии">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПредметДоговора.Лицензии.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора.Лицензии.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="АдресДоставки" type="xs:string" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Единица" type="ns1:КлючевыеСвойстваЕдиницаИзмерения" minOccurs="0"/>
+			<xs:element name="Коэффициент" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Цена" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ЦенаБезСкидки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаБезСкидки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="tns:КлючевыеСвойстваСтавкиНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="Скидка" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Спецификация" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВспомогательноеПоле" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора.Биллинг">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПредметДоговора.Биллинг.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора.Биллинг.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="АдресДоставки" type="xs:string" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ПериодНачисления" type="xs:string" minOccurs="0"/>
+			<xs:element name="Единица" type="ns1:КлючевыеСвойстваЕдиницаИзмерения" minOccurs="0"/>
+			<xs:element name="Коэффициент" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Цена" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ЦенаБезСкидки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаБезСкидки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="tns:КлючевыеСвойстваСтавкиНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="Скидка" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Спецификация" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВспомогательноеПоле" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора.ДополнительныеРеквизиты">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПредметДоговора.ДополнительныеРеквизиты.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПредметДоговора.ДополнительныеРеквизиты.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Свойство" type="xs:string" minOccurs="0"/>
+			<xs:element name="Значение" type="xs:string" minOccurs="0"/>
+			<xs:element name="ТекстоваяСтрока" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="ДокументСсылка.ПриходныйКассовыйОрдер">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваПриходныйКассовыйОрдер">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:ДокументСсылка.ПриходныйКассовыйОрдер" minOccurs="0"/>
+			<xs:element name="Дата" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Номер" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваПриходныйКассовыйОрдер"/>
+			<xs:element name="Операция" type="tns:КлючевыеСвойстваОперации" minOccurs="0"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="УправленческийУчет" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="БухгалтерскийУчет" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Касса" type="ns1:КлючевыеСвойстваКассаККМ" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Заказ" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сотрудник" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="ФизическоеЛицо" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="Аналитика" type="xs:string" minOccurs="0"/>
+			<xs:element name="АналитикаПредставление" type="xs:string" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="КурсВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КратностьВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Счет" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто1" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто3" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПринятоОт" type="xs:string" minOccurs="0"/>
+			<xs:element name="Основание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Приложение" type="xs:string" minOccurs="0"/>
+			<xs:element name="РедактироватьСписком" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="ОбщехозяйственныеРасходы" type="tns:Документ.ПриходныйКассовыйОрдер.ОбщехозяйственныеРасходы" minOccurs="0"/>
+			<xs:element name="РасшифровкаПлатежа" type="tns:Документ.ПриходныйКассовыйОрдер.РасшифровкаПлатежа" minOccurs="0"/>
+			<xs:element name="ДополнительныеРеквизиты" type="tns:Документ.ПриходныйКассовыйОрдер.ДополнительныеРеквизиты" minOccurs="0"/>
+			<xs:element name="РасшифровкаПоИсточникамФинансирования" type="tns:Документ.ПриходныйКассовыйОрдер.РасшифровкаПоИсточникамФинансирования" minOccurs="0"/>
+			<xs:element name="ДокументыПоВзаиорасчетам" type="tns:Документ.ПриходныйКассовыйОрдер.ДокументыПоВзаиорасчетам" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер.ОбщехозяйственныеРасходы">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПриходныйКассовыйОрдер.ОбщехозяйственныеРасходы.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер.ОбщехозяйственныеРасходы.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ДатаОтнесенияЗатрат" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="СтатьяЗатрат" type="ns1:КлючевыеСвойстваСтатьяРасходов" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаУпр" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер.РасшифровкаПлатежа">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПриходныйКассовыйОрдер.РасшифровкаПлатежа.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер.РасшифровкаПлатежа.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Заказ" type="xs:string" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КурсВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КратностьВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер.ДополнительныеРеквизиты">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПриходныйКассовыйОрдер.ДополнительныеРеквизиты.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер.ДополнительныеРеквизиты.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Свойство" type="xs:string" minOccurs="0"/>
+			<xs:element name="Значение" type="xs:string" minOccurs="0"/>
+			<xs:element name="ТекстоваяСтрока" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер.РасшифровкаПоИсточникамФинансирования">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПриходныйКассовыйОрдер.РасшифровкаПоИсточникамФинансирования.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер.РасшифровкаПоИсточникамФинансирования.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ИсточникФинансирования" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер.ДокументыПоВзаиорасчетам">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.ПриходныйКассовыйОрдер.ДокументыПоВзаиорасчетам.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.ПриходныйКассовыйОрдер.ДокументыПоВзаиорасчетам.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Документ" type="xs:string" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="ДокументСсылка.РасходныйКассовыйОрдер">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваРасходныйКассовыйОрдер">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:ДокументСсылка.РасходныйКассовыйОрдер" minOccurs="0"/>
+			<xs:element name="Дата" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Номер" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваРасходныйКассовыйОрдер"/>
+			<xs:element name="Операция" type="tns:КлючевыеСвойстваОперации" minOccurs="0"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="БухгалтерскийУчет" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="УправленческийУчет" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Касса" type="ns1:КлючевыеСвойстваКассаККМ" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сотрудник" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="Выдать" type="xs:string" minOccurs="0"/>
+			<xs:element name="Основание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Приложение" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПоДокументу" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФизическоеЛицо" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="Аналитика" type="xs:string" minOccurs="0"/>
+			<xs:element name="АналитикаПредставление" type="xs:string" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="КурсВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КратностьВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КассаПолучатель" type="ns1:КлючевыеСвойстваКассаККМ" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="СчетОрганизации" type="ns1:КлючевыеСвойстваБанковскийСчет" minOccurs="0"/>
+			<xs:element name="Счет" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто1" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто3" type="xs:string" minOccurs="0"/>
+			<xs:element name="РедактироватьСписком" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ПолучательВознаграждения" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяРасходов" type="tns:КлючевыеСвойстваСтатьиРасходов" minOccurs="0"/>
+			<xs:element name="ОбъектИнвестирования" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="Заказ" type="xs:string" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="ОбщехозяйственныеРасходы" type="tns:Документ.РасходныйКассовыйОрдер.ОбщехозяйственныеРасходы" minOccurs="0"/>
+			<xs:element name="Сотрудники" type="tns:Документ.РасходныйКассовыйОрдер.Сотрудники" minOccurs="0"/>
+			<xs:element name="РасшифровкаПлатежа" type="tns:Документ.РасходныйКассовыйОрдер.РасшифровкаПлатежа" minOccurs="0"/>
+			<xs:element name="ДополнительныеРеквизиты" type="tns:Документ.РасходныйКассовыйОрдер.ДополнительныеРеквизиты" minOccurs="0"/>
+			<xs:element name="РасшифровкаПоИсточникамФинансирования" type="tns:Документ.РасходныйКассовыйОрдер.РасшифровкаПоИсточникамФинансирования" minOccurs="0"/>
+			<xs:element name="ДокументыПоВзаиорасчетам" type="tns:Документ.РасходныйКассовыйОрдер.ДокументыПоВзаиорасчетам" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.ОбщехозяйственныеРасходы">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.РасходныйКассовыйОрдер.ОбщехозяйственныеРасходы.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.ОбщехозяйственныеРасходы.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ДатаОтнесенияЗатрат" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="СтатьяЗатрат" type="ns1:КлючевыеСвойстваСтатьяРасходов" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаУпр" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.Сотрудники">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.РасходныйКассовыйОрдер.Сотрудники.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.Сотрудники.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сотрудник" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.РасшифровкаПлатежа">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.РасходныйКассовыйОрдер.РасшифровкаПлатежа.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.РасшифровкаПлатежа.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КурсВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КратностьВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.ДополнительныеРеквизиты">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.РасходныйКассовыйОрдер.ДополнительныеРеквизиты.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.ДополнительныеРеквизиты.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Свойство" type="xs:string" minOccurs="0"/>
+			<xs:element name="Значение" type="xs:string" minOccurs="0"/>
+			<xs:element name="ТекстоваяСтрока" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.РасшифровкаПоИсточникамФинансирования">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.РасходныйКассовыйОрдер.РасшифровкаПоИсточникамФинансирования.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.РасшифровкаПоИсточникамФинансирования.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ИсточникФинансирования" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.ДокументыПоВзаиорасчетам">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.РасходныйКассовыйОрдер.ДокументыПоВзаиорасчетам.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.РасходныйКассовыйОрдер.ДокументыПоВзаиорасчетам.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Документ" type="xs:string" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="ДокументСсылка.СписаниеСРасчетногоСчета">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваСписаниеСРасчетногоСчета">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:ДокументСсылка.СписаниеСРасчетногоСчета" minOccurs="0"/>
+			<xs:element name="Дата" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Номер" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваСписаниеСРасчетногоСчета"/>
+			<xs:element name="Операция" type="tns:КлючевыеСвойстваОперации" minOccurs="0"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="БухгалтерскийУчет" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="УправленческийУчет" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="СчетОрганизации" type="ns1:КлючевыеСвойстваБанковскийСчет" minOccurs="0"/>
+			<xs:element name="СчетКонтрагента" type="ns1:КлючевыеСвойстваБанковскийСчет" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="tns:КлючевыеСвойстваСтавкиНДС" minOccurs="0"/>
+			<xs:element name="ВсегоНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="Аналитика" type="xs:string" minOccurs="0"/>
+			<xs:element name="АналитикаПредставление" type="xs:string" minOccurs="0"/>
+			<xs:element name="Касса" type="ns1:КлючевыеСвойстваКассаККМ" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="НазначениеПлатежа" type="xs:string" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="КурсВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КратностьВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сотрудник" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="НомерВходящегоДокумента" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаВходящегоДокумента" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Счет" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто1" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто2" type="xs:string" minOccurs="0"/>
+			<xs:element name="Субконто3" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФизическоеЛицо" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="РедактироватьСписком" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="СтатьяЗатрат" type="ns1:КлючевыеСвойстваСтатьяРасходов" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидПеречисленияВБюджет" type="xs:string" minOccurs="0"/>
+			<xs:element name="КодБК" type="xs:string" minOccurs="0"/>
+			<xs:element name="КодОКАТО" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПоказательОснования" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПоказательПериода" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПоказательНомера" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПоказательДаты" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПоказательТипа" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатусСоставителя" type="xs:string" minOccurs="0"/>
+			<xs:element name="ОчередностьПлатежа" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СтатьяРасходов" type="tns:КлючевыеСвойстваСтатьиРасходов" minOccurs="0"/>
+			<xs:element name="ОбъектИнвестирования" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="ИзБанкКлиента" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Заказ" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:element name="Ид" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВыгруженВБанк" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="СтатьяДДСКонтрагента" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="ОбщехозяйственныеРасходы" type="tns:Документ.СписаниеСРасчетногоСчета.ОбщехозяйственныеРасходы" minOccurs="0"/>
+			<xs:element name="Сотрудники" type="tns:Документ.СписаниеСРасчетногоСчета.Сотрудники" minOccurs="0"/>
+			<xs:element name="РасшифровкаПлатежа" type="tns:Документ.СписаниеСРасчетногоСчета.РасшифровкаПлатежа" minOccurs="0"/>
+			<xs:element name="РасшифровкаПлатежаПоДоговоруЗайма" type="tns:Документ.СписаниеСРасчетногоСчета.РасшифровкаПлатежаПоДоговоруЗайма" minOccurs="0"/>
+			<xs:element name="ДополнительныеРеквизиты" type="tns:Документ.СписаниеСРасчетногоСчета.ДополнительныеРеквизиты" minOccurs="0"/>
+			<xs:element name="РасшифровкаПоИсточникамФинансирования" type="tns:Документ.СписаниеСРасчетногоСчета.РасшифровкаПоИсточникамФинансирования" minOccurs="0"/>
+			<xs:element name="ДокументыПоВзаиорасчетам" type="tns:Документ.СписаниеСРасчетногоСчета.ДокументыПоВзаиорасчетам" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.ОбщехозяйственныеРасходы">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СписаниеСРасчетногоСчета.ОбщехозяйственныеРасходы.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.ОбщехозяйственныеРасходы.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ДатаОтнесенияЗатрат" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="СтатьяЗатрат" type="ns1:КлючевыеСвойстваСтатьяРасходов" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаУпр" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="СтатьяРасходов" type="tns:КлючевыеСвойстваСтатьиРасходов" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.Сотрудники">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СписаниеСРасчетногоСчета.Сотрудники.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.Сотрудники.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сотрудник" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.РасшифровкаПлатежа">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СписаниеСРасчетногоСчета.РасшифровкаПлатежа.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.РасшифровкаПлатежа.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КурсВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КратностьВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФЛ" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.РасшифровкаПлатежаПоДоговоруЗайма">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СписаниеСРасчетногоСчета.РасшифровкаПлатежаПоДоговоруЗайма.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.РасшифровкаПлатежаПоДоговоруЗайма.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВидПлатежа" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.ДополнительныеРеквизиты">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СписаниеСРасчетногоСчета.ДополнительныеРеквизиты.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.ДополнительныеРеквизиты.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Свойство" type="xs:string" minOccurs="0"/>
+			<xs:element name="Значение" type="xs:string" minOccurs="0"/>
+			<xs:element name="ТекстоваяСтрока" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.РасшифровкаПоИсточникамФинансирования">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СписаниеСРасчетногоСчета.РасшифровкаПоИсточникамФинансирования.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.РасшифровкаПоИсточникамФинансирования.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ИсточникФинансирования" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.ДокументыПоВзаиорасчетам">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СписаниеСРасчетногоСчета.ДокументыПоВзаиорасчетам.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СписаниеСРасчетногоСчета.ДокументыПоВзаиорасчетам.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Документ" type="xs:string" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="ДокументСсылка.СчетНаОплатуПоставщика">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваСчетНаОплатуПоставщика">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:ДокументСсылка.СчетНаОплатуПоставщика" minOccurs="0"/>
+			<xs:element name="Дата" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Номер" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетНаОплатуПоставщика">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваСчетНаОплатуПоставщика"/>
+			<xs:element name="Операция" type="tns:КлючевыеСвойстваОперации" minOccurs="0"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Склад" type="ns1:КлючевыеСвойстваСклад" minOccurs="0"/>
+			<xs:element name="УчитыватьНДС" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="СуммаВключаетНДС" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВсегоНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ДокументОснование" type="xs:string" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВходящийНомер" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВходящаяДата" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="КурсВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="КратностьВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="АдресДоставки" type="xs:string" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="СуммаВзаиморасчетов" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ТипЦены" type="xs:string" minOccurs="0"/>
+			<xs:element name="СчетКонтрагента" type="ns1:КлючевыеСвойстваБанковскийСчет" minOccurs="0"/>
+			<xs:element name="СчетОрганизации" type="ns1:КлючевыеСвойстваБанковскийСчет" minOccurs="0"/>
+			<xs:element name="Скидка" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаОтгрузки" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="ДатаОплаты" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="СчетПроверенСотрудникомОУ" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Ид" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПериодНачисления" type="xs:string" minOccurs="0"/>
+			<xs:element name="Товары" type="tns:Документ.СчетНаОплатуПоставщика.Товары" minOccurs="0"/>
+			<xs:element name="Услуги" type="tns:Документ.СчетНаОплатуПоставщика.Услуги" minOccurs="0"/>
+			<xs:element name="Лицензии" type="tns:Документ.СчетНаОплатуПоставщика.Лицензии" minOccurs="0"/>
+			<xs:element name="ДополнительныеРеквизиты" type="tns:Документ.СчетНаОплатуПоставщика.ДополнительныеРеквизиты" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетНаОплатуПоставщика.Товары">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СчетНаОплатуПоставщика.Товары.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетНаОплатуПоставщика.Товары.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Единица" type="ns1:КлючевыеСвойстваЕдиницаИзмерения" minOccurs="0"/>
+			<xs:element name="Коэффициент" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Вес" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Цена" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="tns:КлючевыеСвойстваСтавкиНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВесПоДокументу" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="НоменклатураПоставщика" type="tns:КлючевыеСвойстваНоменклатураПоставщика" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="ВспомогательноеПоле" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦенаПоПрайсу" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетНаОплатуПоставщика.Услуги">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СчетНаОплатуПоставщика.Услуги.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетНаОплатуПоставщика.Услуги.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Единица" type="ns1:КлючевыеСвойстваЕдиницаИзмерения" minOccurs="0"/>
+			<xs:element name="Коэффициент" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Цена" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="tns:КлючевыеСвойстваСтавкиНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ДатаОтнесенияЗатрат" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяЗатрат" type="ns1:КлючевыеСвойстваСтатьяРасходов" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="СтатьяДДС" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВспомогательноеПоле" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Мероприятие" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетНаОплатуПоставщика.Лицензии">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СчетНаОплатуПоставщика.Лицензии.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетНаОплатуПоставщика.Лицензии.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Содержание" type="xs:string" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Единица" type="ns1:КлючевыеСвойстваЕдиницаИзмерения" minOccurs="0"/>
+			<xs:element name="Коэффициент" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Цена" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ЦенаБезСкидки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаБезСкидки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="tns:КлючевыеСвойстваСтавкиНДС" minOccurs="0"/>
+			<xs:element name="СуммаНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Всего" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="Скидка" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяЗатрат" type="ns1:КлючевыеСвойстваСтатьяРасходов" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="СтатьяДДС" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВспомогательноеПоле" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетНаОплатуПоставщика.ДополнительныеРеквизиты">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Документ.СчетНаОплатуПоставщика.ДополнительныеРеквизиты.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документ.СчетНаОплатуПоставщика.ДополнительныеРеквизиты.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Свойство" type="xs:string" minOccurs="0"/>
+			<xs:element name="Значение" type="xs:string" minOccurs="0"/>
+			<xs:element name="ТекстоваяСтрока" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.IIKO_МРР">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.IIKO_МРР.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.IIKO_МРР.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ЛичныйКабинетIIKO" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ДатаОплаты" type="xs:dateTime" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ВзаиморасчетыСКонтрагентами">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ВзаиморасчетыСКонтрагентами.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ВзаиморасчетыСКонтрагентами.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Заказ" type="xs:string" minOccurs="0"/>
+			<xs:element name="КредитовыйДокумент" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаУпр" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаРуб" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ВзаиморасчетыСКонтрагентамиБух">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ВзаиморасчетыСКонтрагентамиБух.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ВзаиморасчетыСКонтрагентамиБух.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="КредитовыйДокумент" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ВзаиморасчетыСПодотчетнымиЛицами">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ВзаиморасчетыСПодотчетнымиЛицами.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ВзаиморасчетыСПодотчетнымиЛицами.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФизическоеЛицо" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="РасчетныйДокумент" type="xs:string" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ВзаиморасчетыСУчредителями">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ВзаиморасчетыСУчредителями.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ВзаиморасчетыСУчредителями.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="ФизическоеЛицо" type="ns1:КлючевыеСвойстваФизическоеЛицо" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДвиженияДенежныхСредств">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ДвиженияДенежныхСредств.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДвиженияДенежныхСредств.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Операция" type="tns:КлючевыеСвойстваОперации" minOccurs="0"/>
+			<xs:element name="Статья" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Аналитика" type="xs:string" minOccurs="0"/>
+			<xs:element name="БанкКасса" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаОтнесенияЗатрат" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="НалБезнал" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Приход" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Расход" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДвиженияДенежныхСредствПлан">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ДвиженияДенежныхСредствПлан.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДвиженияДенежныхСредствПлан.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Операция" type="tns:КлючевыеСвойстваОперации" minOccurs="0"/>
+			<xs:element name="Статья" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Аналитика" type="xs:string" minOccurs="0"/>
+			<xs:element name="БанкКасса" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаОтнесенияЗатрат" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="НалБезнал" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="СценарийПланирования" type="xs:string" minOccurs="0"/>
+			<xs:element name="Приход" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Расход" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДенежныеСредстваБанк">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ДенежныеСредстваБанк.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДенежныеСредстваБанк.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="БанковскийСчет" type="ns1:КлючевыеСвойстваБанковскийСчет" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаРуб" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДенежныеСредстваВПути">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ДенежныеСредстваВПути.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДенежныеСредстваВПути.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДенежныеСредстваИсточникиФинансирования">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ДенежныеСредстваИсточникиФинансирования.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДенежныеСредстваИсточникиФинансирования.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="ИсточникФинансирования" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДенежныеСредстваКасса">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ДенежныеСредстваКасса.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ДенежныеСредстваКасса.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Касса" type="ns1:КлючевыеСвойстваКассаККМ" minOccurs="0"/>
+			<xs:element name="Валюта" type="ns1:КлючевыеСвойстваВалюта" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаУпр" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаРуб" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.МРР">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.МРР.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.МРР.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="Продукт" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="ПериодНачисления" type="xs:string" minOccurs="0"/>
+			<xs:element name="КорректировкаПрошлогоПериода" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ГрейсПериод" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ОплатаОтПокупателей">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ОплатаОтПокупателей.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ОплатаОтПокупателей.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="Контрагент" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="НоменклатурнаяГруппа" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Поступления" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ОстаткиТовараНаСкладах">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ОстаткиТовараНаСкладах.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ОстаткиТовараНаСкладах.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="Склад" type="ns1:КлючевыеСвойстваСклад" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Резерв" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ПартииТоваровНаСкладах">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ПартииТоваровНаСкладах.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ПартииТоваровНаСкладах.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидДвижения" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="Склад" type="ns1:КлючевыеСвойстваСклад" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="ДокументОприходования" type="xs:string" minOccurs="0"/>
+			<xs:element name="Партия" type="xs:string" minOccurs="0"/>
+			<xs:element name="Качество" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПартияПроизводителя" type="xs:string" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаУпр" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаРуб" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СуммаБезНДС" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ПрибыльИУбытки">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ПрибыльИУбытки.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ПрибыльИУбытки.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="Статья" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Показатель" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Приход" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Расход" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Аналитика" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.Продажи">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.Продажи.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.Продажи.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Покупатель" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="Договор" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Поставщик" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="АдресДоставки" type="xs:string" minOccurs="0"/>
+			<xs:element name="Смена" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидНоменклатуры" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Касса" type="xs:string" minOccurs="0"/>
+			<xs:element name="Склад" type="ns1:КлючевыеСвойстваСклад" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Выручка" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Себестоимость" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Прибыль" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВыручкаРуб" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СебестоимостьРуб" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ПрибыльРуб" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ПродажиБух">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ПродажиБух.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ПродажиБух.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Покупатель" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="Договор" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Поставщик" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="АдресДоставки" type="xs:string" minOccurs="0"/>
+			<xs:element name="Смена" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидНоменклатуры" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Касса" type="xs:string" minOccurs="0"/>
+			<xs:element name="Склад" type="ns1:КлючевыеСвойстваСклад" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Выручка" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Себестоимость" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Прибыль" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ПродажиПлан">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ПродажиПлан.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ПродажиПлан.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="Покупатель" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="Показатель" type="xs:string" minOccurs="0"/>
+			<xs:element name="НоменклатурнаяГруппа" type="xs:string" minOccurs="0"/>
+			<xs:element name="Значение" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ПродажиТарифы">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:РегистрНакопления.ПродажиТарифы.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрНакопления.ПродажиТарифы.Строка">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="Регистратор" type="xs:string" minOccurs="0"/>
+			<xs:element name="РегистраторТип" type="xs:string" minOccurs="0"/>
+			<xs:element name="Организация" type="ns1:КлючевыеСвойстваОрганизация" minOccurs="0"/>
+			<xs:element name="Подразделение" type="ns1:КлючевыеСвойстваПодразделение" minOccurs="0"/>
+			<xs:element name="Покупатель" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="Договор" type="ns1:КлючевыеСвойстваДоговор" minOccurs="0"/>
+			<xs:element name="Поставщик" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="АдресДоставки" type="xs:string" minOccurs="0"/>
+			<xs:element name="Тариф" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="ВидНоменклатуры" type="xs:string" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="Характеристика" type="xs:string" minOccurs="0"/>
+			<xs:element name="Ответственный" type="ns1:КлючевыеСвойстваПользователь" minOccurs="0"/>
+			<xs:element name="Проект" type="tns:КлючевыеСвойстваПроект" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Выручка" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВыручкаРуб" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Себестоимость" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="СебестоимостьРуб" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Прибыль" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ПрибыльРуб" type="xs:decimal" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="СправочникСсылка.КатегорииНоменклатуры">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваКатегорииНоменклатуры">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.КатегорииНоменклатуры" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string" minOccurs="0"/>
+			<xs:element name="КодВПрограмме" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.КатегорииНоменклатуры">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваКатегорииНоменклатуры"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="НаборСвойств" type="xs:string" minOccurs="0"/>
+			<xs:element name="НаборСвойствХарактеристики" type="xs:string" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="СправочникСсылка.НоменклатураПоставщика">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваНоменклатураПоставщика">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.НоменклатураПоставщика" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string" minOccurs="0"/>
+			<xs:element name="КодВПрограмме" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.НоменклатураПоставщика">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваНоменклатураПоставщика"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="Артикул" type="xs:string" minOccurs="0"/>
+			<xs:element name="БазоваяЕдиница" type="ns1:КлючевыеСвойстваЕдиницаИзмерения" minOccurs="0"/>
+			<xs:element name="Бренд" type="xs:string" minOccurs="0"/>
+			<xs:element name="ВидНоменклатуры" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Импорт" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="КатегорияНоменклатуры" type="tns:КлючевыеСвойстваКатегорииНоменклатуры" minOccurs="0"/>
+			<xs:element name="НаименованиеПолное" type="xs:string" minOccurs="0"/>
+			<xs:element name="НоменклатурнаяГруппа" type="xs:string" minOccurs="0"/>
+			<xs:element name="НомерГТД" type="xs:string" minOccurs="0"/>
+			<xs:element name="Описание" type="xs:string" minOccurs="0"/>
+			<xs:element name="ОсновнаяЕдиница" type="ns1:КлючевыеСвойстваЕдиницаИзмерения" minOccurs="0"/>
+			<xs:element name="ОсновнаяСпецификация" type="xs:string" minOccurs="0"/>
+			<xs:element name="ОсновнойПоставщик" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="ОсновнойСклад" type="ns1:КлючевыеСвойстваСклад" minOccurs="0"/>
+			<xs:element name="Производитель" type="ns1:КлючевыеСвойстваКонтрагент" minOccurs="0"/>
+			<xs:element name="СрокГарантии" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтавкаНДС" type="tns:КлючевыеСвойстваСтавкиНДС" minOccurs="0"/>
+			<xs:element name="СтранаПроисхождения" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ФайлКартинки" type="xs:string" minOccurs="0"/>
+			<xs:element name="Цвет" type="xs:string" minOccurs="0"/>
+			<xs:element name="КодТНВЭД" type="xs:string" minOccurs="0"/>
+			<xs:element name="ШаблонХарактеристик" type="xs:string" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="НавигационнаяСсылка" type="xs:string" minOccurs="0"/>
+			<xs:element name="БазоваяЕдиницаПоКлассификатору" type="ns1:КлючевыеСвойстваЕдиницаИзмерения" minOccurs="0"/>
+			<xs:element name="Номенклатура" type="ns1:КлючевыеСвойстваНоменклатура" minOccurs="0"/>
+			<xs:element name="ДополнительныеРеквизиты" type="tns:Справочник.НоменклатураПоставщика.ДополнительныеРеквизиты" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Справочник.НоменклатураПоставщика.ДополнительныеРеквизиты">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Справочник.НоменклатураПоставщика.ДополнительныеРеквизиты.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.НоменклатураПоставщика.ДополнительныеРеквизиты.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Свойство" type="xs:string" minOccurs="0"/>
+			<xs:element name="Значение" type="xs:string" minOccurs="0"/>
+			<xs:element name="ТекстоваяСтрока" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="СправочникСсылка.Операции">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваОперации">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.Операции" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string" minOccurs="0"/>
+			<xs:element name="КодВПрограмме" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Операции">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваОперации"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Описание" type="xs:string" minOccurs="0"/>
+			<xs:element name="ОписаниеПубликовать" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ДвижениеДенежныхСредств" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="СтатьяДвиженияДенежныхСредств" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="ДвижениеПоБанку" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ДвижениеПоКассе" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ВзаиморасчетыСКонтрагентами" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ВзаиморасчетыСПодотчетнымиЛицами" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ОборотыПоПроекту" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="ОписаниеКраткое" type="xs:string" minOccurs="0"/>
+			<xs:element name="ОписаниеПолное" type="xs:string" minOccurs="0"/>
+			<xs:element name="Документы" type="tns:Справочник.Операции.Документы" minOccurs="0"/>
+			<xs:element name="ВводНаОсновании" type="tns:Справочник.Операции.ВводНаОсновании" minOccurs="0"/>
+			<xs:element name="СписокОбязательныхРеквизитов" type="tns:Справочник.Операции.СписокОбязательныхРеквизитов" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Операции.Документы">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Справочник.Операции.Документы.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Операции.Документы.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Документ" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Операции.ВводНаОсновании">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Справочник.Операции.ВводНаОсновании.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Операции.ВводНаОсновании.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Объект" type="xs:string" minOccurs="0"/>
+			<xs:element name="Операция" type="tns:КлючевыеСвойстваОперации" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Операции.СписокОбязательныхРеквизитов">
+		<xs:sequence>
+			<xs:element name="Строка" type="tns:Справочник.Операции.СписокОбязательныхРеквизитов.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Операции.СписокОбязательныхРеквизитов.Строка">
+		<xs:sequence>
+			<xs:element name="НомерСтрокиДокумента" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Документ" type="xs:string" minOccurs="0"/>
+			<xs:element name="Реквизит" type="xs:string" minOccurs="0"/>
+			<xs:element name="УникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="СправочникСсылка.СтавкиНДС">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваСтавкиНДС">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.СтавкиНДС" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string" minOccurs="0"/>
+			<xs:element name="КодВПрограмме" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.СтавкиНДС">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваСтавкиНДС"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="Ставка" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="СправочникСсылка.СтатьиДвиженияДенежныхСредств">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваСтатьиДвиженияДенежныхСредств">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.СтатьиДвиженияДенежныхСредств" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string" minOccurs="0"/>
+			<xs:element name="КодВПрограмме" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.СтатьиДвиженияДенежныхСредств">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваСтатьиДвиженияДенежныхСредств"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="КодДляСортировки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВидДвиженияДенежныхСредств" type="xs:string" minOccurs="0"/>
+			<xs:element name="ИспользоватьВБюджете" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="ЦФО" type="xs:string" minOccurs="0"/>
+			<xs:element name="СтатьяЗатрат" type="ns1:КлючевыеСвойстваСтатьяРасходов" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="СправочникСсылка.СтатьиДоходов">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваСтатьиДоходов">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.СтатьиДоходов" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string" minOccurs="0"/>
+			<xs:element name="КодВПрограмме" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.СтатьиДоходов">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваСтатьиДоходов"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="КодДляСортировки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВнешнийУникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="НаименованиеПолное" type="xs:string" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<xs:simpleType name="СправочникСсылка.СтатьиРасходов">
+		<xs:restriction base="ns2:Ref"/>
+	</xs:simpleType>
+	<xs:complexType name="КлючевыеСвойстваСтатьиРасходов">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="tns:СправочникСсылка.СтатьиРасходов" minOccurs="0"/>
+			<xs:element name="Наименование" type="xs:string" minOccurs="0"/>
+			<xs:element name="КодВПрограмме" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочник.СтатьиРасходов">
+		<xs:sequence>
+			<xs:element name="КлючевыеСвойства" type="tns:КлючевыеСвойстваСтатьиРасходов"/>
+			<xs:element name="Автор" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаСоздания" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="КодДляСортировки" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="ВнешнийУникальныйИдентификатор" type="xs:string" minOccurs="0"/>
+			<xs:element name="НаименованиеПолное" type="xs:string" minOccurs="0"/>
+			<xs:element name="Комментарий" type="xs:string" minOccurs="0"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:anyAttribute namespace="##any" processContents="lax"/>
+	</xs:complexType>
+	<!-- ===== КОНЕЦ ГЕНЕРИРУЕМОЙ СЕКЦИИ ===== -->
 </xs:schema>
