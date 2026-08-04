@@ -237,7 +237,7 @@ class Gen:
                 ref_simple = ("СправочникСсылка." if kind == "Справочник" else "ДокументСсылка.") + name
                 emit_type(ref_simple, [
                     '\t<xs:simpleType name="%s">' % ref_simple,
-                    '\t\t<xs:restriction base="ns2:Ref"/>',
+                    '\t\t<xs:restriction base="xs:string"/>',
                     '\t</xs:simpleType>',
                 ])
 

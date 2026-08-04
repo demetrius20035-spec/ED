@@ -1,6 +1,8 @@
 ﻿<xs:schema xmlns:ns1="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6" xmlns:ns2="http://www.1c.ru/SSL/Exchange/Message" xmlns:tns="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6/Extended" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6/Extended" attributeFormDefault="unqualified" elementFormDefault="qualified">
-	<xs:import namespace="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6"/>
-	<xs:import namespace="http://www.1c.ru/SSL/Exchange/Message"/>
+	<!-- schemaLocation обязателен: без него конфигуратор при импорте не видит типов 1.6
+	     и МОЛЧА выбрасывает base у xs:extension - типы теряют наследование.
+	     При импорте держите оба XSD-файла в одном каталоге. -->
+	<xs:import namespace="http://v8.1c.ru/edi/edi_stnd/EnterpriseData/1.6" schemaLocation="EnterpriseData_1_6_23.xsd"/>
 	<xs:complexType name="Документ.СчетПокупателю">
 		<xs:complexContent>
 			<xs:extension base="ns1:Документ.СчетПокупателю">
@@ -119,14 +121,14 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="СправочникСсылка.Проекты">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="СправочникСсылка.ТипыПродаж">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<!-- ===== НАЧАЛО ГЕНЕРИРУЕМОЙ СЕКЦИИ: не редактировать вручную (tools/generate_export.py) ===== -->
 	<xs:simpleType name="ДокументСсылка.ПоступлениеНаРасчетныйСчет">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваПоступлениеНаРасчетныйСчет">
 		<xs:sequence>
@@ -288,7 +290,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="ДокументСсылка.ПредметДоговора">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваПредметДоговора">
 		<xs:sequence>
@@ -500,7 +502,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="ДокументСсылка.ПриходныйКассовыйОрдер">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваПриходныйКассовыйОрдер">
 		<xs:sequence>
@@ -654,7 +656,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="ДокументСсылка.РасходныйКассовыйОрдер">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваРасходныйКассовыйОрдер">
 		<xs:sequence>
@@ -834,7 +836,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="ДокументСсылка.СписаниеСРасчетногоСчета">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваСписаниеСРасчетногоСчета">
 		<xs:sequence>
@@ -1052,7 +1054,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="ДокументСсылка.СчетНаОплатуПоставщика">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваСчетНаОплатуПоставщика">
 		<xs:sequence>
@@ -1688,7 +1690,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="СправочникСсылка.КатегорииНоменклатуры">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваКатегорииНоменклатуры">
 		<xs:sequence>
@@ -1711,7 +1713,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="СправочникСсылка.НоменклатураПоставщика">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваНоменклатураПоставщика">
 		<xs:sequence>
@@ -1775,7 +1777,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="СправочникСсылка.Операции">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваОперации">
 		<xs:sequence>
@@ -1854,7 +1856,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="СправочникСсылка.СтавкиНДС">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваСтавкиНДС">
 		<xs:sequence>
@@ -1876,7 +1878,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="СправочникСсылка.СтатьиДвиженияДенежныхСредств">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваСтатьиДвиженияДенежныхСредств">
 		<xs:sequence>
@@ -1902,7 +1904,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="СправочникСсылка.СтатьиДоходов">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваСтатьиДоходов">
 		<xs:sequence>
@@ -1926,7 +1928,7 @@
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:simpleType name="СправочникСсылка.СтатьиРасходов">
-		<xs:restriction base="ns2:Ref"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:complexType name="КлючевыеСвойстваСтатьиРасходов">
 		<xs:sequence>
