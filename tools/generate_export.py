@@ -46,9 +46,6 @@ MANUAL_ROWS = {
         {"entity": "Проект", "file": "proekt.xml", "selection": "Элементы", "posted": False},
         {"entity": "Сеть", "file": "set.xml", "selection": "Группы", "posted": False},
     ],
-    "Документ.СчетНаОплатуПокупателю": [
-        {"entity": "СчетПокупателю", "file": "schet.xml", "selection": "Все", "posted": True},
-    ],
     "Справочник.Номенклатура": [
         {"entity": "Номенклатура", "file": "nomenklatura.xml", "selection": "Элементы", "posted": False},
     ],
@@ -61,6 +58,12 @@ MANUAL_ROWS = {
     "Документ.ПоступлениеТоваровУслуг": [
         {"entity": "ПоступлениеТоваровУслуг", "file": "postuplenie.xml", "selection": "Все", "posted": True},
     ],
+}
+
+# Переопределение имени сущности/файла для генерируемых объектов:
+# сохраняет стабильные имена для потребителя (парсеры уже написаны)
+GENERATED_OVERRIDES = {
+    "Документ.СчетНаОплатуПокупателю": {"entity": "СчетПокупателю", "file": "schet.xml"},
 }
 
 # Объекты, которые целиком формирует и пишет попутная выгрузка
@@ -389,14 +392,16 @@ class Gen:
                 continue
             kind = o["Тип"]
             name = o["Имя"]
-            fname = translit(name) + ".xml"
+            ov = GENERATED_OVERRIDES.get(full, {})
+            entity = ov.get("entity", name)
+            fname = ov.get("file", translit(name) + ".xml")
             if kind == "РегистрНакопления":
-                rows.append((full, name, fname, False, "Все", "РегистрНакопления"))
+                rows.append((full, entity, fname, False, "Все", "РегистрНакопления"))
             else:
                 std = std_names(o)
                 posted = kind == "Документ" and "Проведен" in std
                 selection = "Элементы" if (kind == "Справочник" and "ЭтоГруппа" in std) else "Все"
-                rows.append((full, name, fname, posted, selection, "Объект"))
+                rows.append((full, entity, fname, posted, selection, "Объект"))
 
         seen_entities, seen_files = set(), set()
         for full, entity, fname, posted, selection, source in rows:
