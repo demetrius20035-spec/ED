@@ -131,8 +131,30 @@ def translit(name):
 # ----------------------------------------------------------------------------
 
 def load_meta():
+    """Базовое описание + дополнительные файлы metadata_export_*.json.
+
+    Объекты объединяются по ПолномуИмени: более поздний файл (по имени)
+    замещает объект целиком. Так новые дампы из 1С подключаются простым
+    добавлением файла в корень репозитория, без правки базового описания."""
     with io.open(JSON_PATH, encoding="utf-8-sig") as f:
-        return json.load(f)
+        meta = json.load(f)
+    by_name = {o["ПолноеИмя"]: o for o in meta["Объекты"]}
+    order = [o["ПолноеИмя"] for o in meta["Объекты"]]
+    for path in sorted(ROOT.glob("metadata_export_*.json")):
+        with io.open(path, encoding="utf-8-sig") as f:
+            extra = json.load(f)
+        added = replaced = 0
+        for o in extra.get("Объекты", []):
+            full = o["ПолноеИмя"]
+            if full in by_name:
+                replaced += 1
+            else:
+                order.append(full)
+                added += 1
+            by_name[full] = o
+        print("Описание %s: новых %d, заменено %d" % (path.name, added, replaced))
+    meta["Объекты"] = [by_name[n] for n in order]
+    return meta
 
 
 def std_names(obj):
