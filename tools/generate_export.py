@@ -63,7 +63,8 @@ MANUAL_ROWS = {
 # Переопределение имени сущности/файла для генерируемых объектов:
 # сохраняет стабильные имена для потребителя (парсеры уже написаны)
 GENERATED_OVERRIDES = {
-    "Документ.СчетНаОплатуПокупателю": {"entity": "СчетПокупателю", "file": "schet.xml"},
+    # horizonDays ограничивает ПОЛНУЮ выгрузку документов последними N днями
+    "Документ.СчетНаОплатуПокупателю": {"entity": "СчетПокупателю", "file": "schet.xml", "horizonDays": 62},
     "Справочник.ДоговорыКонтрагентов": {"entity": "Договор", "file": "dogovor.xml"},
 }
 
@@ -386,9 +387,9 @@ class Gen:
         L.append("")
 
         # --- ОписаниеВыгрузки ---
-        L.append("Функция НоваяСтрокаОписанияДХ(ИмяМетаданных, Entity, ИмяФайла, Проводимый, Отбор, ВидИсточника)")
+        L.append("Функция НоваяСтрокаОписанияДХ(ИмяМетаданных, Entity, ИмяФайла, Проводимый, Отбор, ВидИсточника, ГоризонтДней)")
         L.append("\tСтрока = Новый Структура;")
-        for f in ("ИмяМетаданных", "Entity", "ИмяФайла", "Проводимый", "Отбор", "ВидИсточника"):
+        for f in ("ИмяМетаданных", "Entity", "ИмяФайла", "Проводимый", "Отбор", "ВидИсточника", "ГоризонтДней"):
             L.append("\tСтрока.Вставить(\"%s\", %s);" % (f, f))
         L.append("\tВозврат Строка;")
         L.append("КонецФункции")
@@ -403,31 +404,33 @@ class Gen:
             full = o["ПолноеИмя"]
             if full in MANUAL_ROWS:
                 for r in MANUAL_ROWS[full]:
-                    rows.append((full, r["entity"], r["file"], r["posted"], r["selection"], "Объект"))
+                    rows.append((full, r["entity"], r["file"], r["posted"], r["selection"], "Объект",
+                                 r.get("horizonDays", 0)))
                 continue
             kind = o["Тип"]
             name = o["Имя"]
             ov = GENERATED_OVERRIDES.get(full, {})
             entity = ov.get("entity", name)
             fname = ov.get("file", translit(name) + ".xml")
+            horizon = ov.get("horizonDays", 0)
             if kind == "РегистрНакопления":
-                rows.append((full, entity, fname, False, "Все", "РегистрНакопления"))
+                rows.append((full, entity, fname, False, "Все", "РегистрНакопления", 0))
             else:
                 std = std_names(o)
                 posted = kind == "Документ" and "Проведен" in std
                 selection = "Элементы" if (kind == "Справочник" and "ЭтоГруппа" in std) else "Все"
-                rows.append((full, entity, fname, posted, selection, "Объект"))
+                rows.append((full, entity, fname, posted, selection, "Объект", horizon))
 
         seen_entities, seen_files = set(), set()
-        for full, entity, fname, posted, selection, source in rows:
+        for full, entity, fname, posted, selection, source, horizon in rows:
             if entity in seen_entities:
                 raise SystemExit("Дубль entity: " + entity)
             if fname in seen_files:
                 raise SystemExit("Дубль файла: " + fname)
             seen_entities.add(entity)
             seen_files.add(fname)
-            L.append("\tОписание.Добавить(НоваяСтрокаОписанияДХ(\"%s\", \"%s\", \"%s\", %s, \"%s\", \"%s\"));"
-                     % (full, entity, fname, "Истина" if posted else "Ложь", selection, source))
+            L.append("\tОписание.Добавить(НоваяСтрокаОписанияДХ(\"%s\", \"%s\", \"%s\", %s, \"%s\", \"%s\", %d));"
+                     % (full, entity, fname, "Истина" if posted else "Ложь", selection, source, horizon))
         L.append("")
         L.append("\tВозврат Описание;")
         L.append("")
