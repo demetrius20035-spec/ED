@@ -15,6 +15,7 @@
 		<xs:sequence>
 			<xs:element name="Ссылка" type="tns:СправочникСсылка.Проекты" minOccurs="0"/>
 			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="Группа" type="tns:КлючевыеСвойстваПроектГруппа" minOccurs="0"/>
 			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
