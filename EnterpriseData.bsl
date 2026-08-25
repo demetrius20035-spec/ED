@@ -25,7 +25,9 @@
 	
 	Prefix = "mega-export/incremental/" + ДатаКонцаГринвичуСТире;   
 	
-	AccessKey = ""; SecretKey = "";
+	КлючиS3 = ПрочитатьКлючиS3();
+	AccessKey = КлючиS3.AccessKey;
+	SecretKey = КлючиS3.SecretKey;
 	//;
 	
 	Команда = "";
@@ -347,7 +349,9 @@
 	
 	Prefix = "mega-export/full/" + ДатаКонцаГринвичуСТире;   
 	
-	AccessKey = ""; SecretKey = "";
+	КлючиS3 = ПрочитатьКлючиS3();
+	AccessKey = КлючиS3.AccessKey;
+	SecretKey = КлючиS3.SecretKey;
 	//;
 	
 	Команда = "";
@@ -573,7 +577,9 @@
 	Region = "ru-central1";
 	Bucket = "ru-dxbx-mega-export";
 
-	AccessKey = ""; SecretKey = "";
+	КлючиS3 = ПрочитатьКлючиS3();
+	AccessKey = КлючиS3.AccessKey;
+	SecretKey = КлючиS3.SecretKey;
 	//;
 
 	// Путь к Ruby‑скрипту (обратите внимание на двойные обратные слеши)
@@ -767,7 +773,9 @@
 	Region = "ru-central1";
 	Bucket = "ru-dxbx-mega-export";
 
-	AccessKey = ""; SecretKey = "";
+	КлючиS3 = ПрочитатьКлючиS3();
+	AccessKey = КлючиS3.AccessKey;
+	SecretKey = КлючиS3.SecretKey;
 	//;
 
 	// Путь к Ruby‑скрипту (обратите внимание на двойные обратные слеши)
@@ -920,7 +928,9 @@
 	Region = "ru-central1";
 	Bucket = "ru-dxbx-mega-export";
 
-	AccessKey = ""; SecretKey = "";
+	КлючиS3 = ПрочитатьКлючиS3();
+	AccessKey = КлючиS3.AccessKey;
+	SecretKey = КлючиS3.SecretKey;
 	//;
 
 	// Путь к Ruby‑скрипту (обратите внимание на двойные обратные слеши)
@@ -1158,7 +1168,9 @@
 	Region = "ru-central1";
 	Bucket = "ru-dxbx-mega-export";
 
-	AccessKey = ""; SecretKey = "";
+	КлючиS3 = ПрочитатьКлючиS3();
+	AccessKey = КлючиS3.AccessKey;
+	SecretKey = КлючиS3.SecretKey;
 	//;
 
 	// Путь к Ruby‑скрипту (обратите внимание на двойные обратные слеши)
@@ -1369,7 +1381,9 @@
 	Region = "ru-central1";
 	Bucket = "ru-dxbx-mega-export";
 
-	AccessKey = ""; SecretKey = "";
+	КлючиS3 = ПрочитатьКлючиS3();
+	AccessKey = КлючиS3.AccessKey;
+	SecretKey = КлючиS3.SecretKey;
 	//;
 
 	// Путь к Ruby‑скрипту (обратите внимание на двойные обратные слеши)
@@ -1664,7 +1678,9 @@
 	Region = "ru-central1";
 	Bucket = "ru-dxbx-mega-export";
 
-	AccessKey = ""; SecretKey = "";
+	КлючиS3 = ПрочитатьКлючиS3();
+	AccessKey = КлючиS3.AccessKey;
+	SecretKey = КлючиS3.SecretKey;
 	//;
 
 	// Путь к Ruby‑скрипту (обратите внимание на двойные обратные слеши)
@@ -1894,7 +1910,9 @@
 	Region = "ru-central1";
 	Bucket = "ru-dxbx-mega-export";
 
-	AccessKey = ""; SecretKey = "";
+	КлючиS3 = ПрочитатьКлючиS3();
+	AccessKey = КлючиS3.AccessKey;
+	SecretKey = КлючиS3.SecretKey;
 	//
 
 	// Путь к Ruby‑скрипту (обратите внимание на двойные обратные слеши)
@@ -2371,6 +2389,29 @@
 	ФайлОбмена.Закрыть();
 
 КонецПроцедуры // ЗавершитьФайлВыгрузкиДХ()
+
+// Читает ключи доступа S3 из файла на сервере (НЕ хранится в git/конфигурации).
+// Формат файла (две строки): первая - AccessKey, вторая - SecretKey.
+Функция ПрочитатьКлючиS3()
+
+	Ключи = Новый Структура("AccessKey, SecretKey", "", "");
+	ПутьКФайлу = "C:\proj\s3_keys.txt";
+
+	Файл = Новый Файл(ПутьКФайлу);
+	Если НЕ Файл.Существует() Тогда
+		ЖурналРегистрации.ДобавитьСообщениеДляЖурналаРегистрации("Выгрузка ДХ", УровеньЖурналаРегистрации.Ошибка,,,
+			"Не найден файл ключей S3: " + ПутьКФайлу);
+		Возврат Ключи;
+	КонецЕсли;
+
+	Чтение = Новый ЧтениеТекста(ПутьКФайлу, КодировкаТекста.UTF8);
+	Ключи.AccessKey = СокрЛП(Чтение.ПрочитатьСтроку());
+	Ключи.SecretKey = СокрЛП(Чтение.ПрочитатьСтроку());
+	Чтение.Закрыть();
+
+	Возврат Ключи;
+
+КонецФункции // ПрочитатьКлючиS3()
 
 // Загружает файл в S3 через Ruby-скрипт. Возвращает код возврата (0 - успех).
 Функция ЗагрузитьФайлВS3(ЛокальныйПуть, КлючОбъекта, ПараметрыS3)
